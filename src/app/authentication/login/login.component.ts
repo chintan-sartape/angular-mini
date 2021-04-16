@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeesService } from '../../services/employees.service'
+import {Employee  } from '../../employee'
 
 @Component({
   selector: 'app-login',
@@ -7,13 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  error: string
+
+  constructor( private employeesService: EmployeesService ) { }
 
   ngOnInit(): void {
   }
 
   loginFormValue(value: any) {
     console.log(value)
+    return this.employeesService
+      .loginEmployees(value)
+      .subscribe(
+        value => console.log('login success'),
+        error => this.error = error
+      );
   }
 
 }

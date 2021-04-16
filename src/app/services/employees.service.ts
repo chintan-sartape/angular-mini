@@ -24,6 +24,15 @@ export class EmployeesService {
     );
   }
 
+  loginEmployees(employee: Employee) {
+    console.log(employee)
+    return this.http.post<Employee>(this.serverUrl + 'employees/login', employee, this.httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    )
+
+  }
+
   createEmployees (employee: Employee) {
     console.log(employee)
     return this.http.post<Employee>(this.serverUrl + 'employees', employee, this.httpOptions)

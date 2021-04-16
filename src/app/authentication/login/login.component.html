@@ -2,24 +2,29 @@
 <form #loginForm="ngForm" (ngSubmit)="loginFormValue(loginForm.value)" class="form-signin">
 
   <span id="reauth-email" class="reauth-email"></span>
-  
-  <input name="email" type="email" placeholder="Email address" required
-    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-    #email="ngModel" 
-    [(ngModel)]="loginForm.email" 
-    [class.is-invalid]="email.invalid && email.touched"
-    class="form-control" >
-    <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
 
-    
-  <input name="password" type="password" placeholder="Password" required
+  <div class="form-group">
+    <input name="email" type="email" placeholder="Email address" required
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      #email="ngModel" 
+      [(ngModel)]="loginForm.email" 
+      [class.is-invalid]="email.invalid && email.touched"
+      class="form-control" >
+    <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
+  </div>
+
+  <div class="form-group">
+    <input name="password" type="password" placeholder="Password" required
     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
     #password="ngModel"
     [(ngModel)]="loginForm.password" 
     [class.is-invalid]="password.invalid && password.touched"
     class="form-control">
     <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
-  
-  <button [disabled]="loginForm.form.invalid" class="btn btn-lg btn-primary btn-block btn-signin">Sign in</button>
+  </div>
+
+  <div class="form-group">
+    <button [disabled]="loginForm.form.invalid" class="btn btn-lg btn-primary btn-block btn-signin">Sign in</button>
+  </div>
 
 </form>
