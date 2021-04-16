@@ -1,0 +1,23 @@
+<app-register></app-register>
+
+<table class="table table-striped table-bordered mb-0 listViewTable">
+    <thead>
+        <th>id</th>
+        <th>Name</th>
+        <th>age</th>
+        <th>salary</th>
+        <th>position</th>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let employee of employees">
+            <tr>
+                <td class="listViewRow" scope="row">{{ employee._id }}</td>
+                <td class="listViewRow">{{ employee.name }}</td>
+                <td class="listViewRow">{{ employee.age }}</td>
+                <td class="listViewRow">{{ employee.salary }}</td>
+                <td class="listViewRow">{{ employee.position }}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+<!-- <app-login></app-login> -->
