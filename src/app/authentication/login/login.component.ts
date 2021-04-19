@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../../services/employees.service'
-import {Employee  } from '../../employee'
+
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,40 @@ import {Employee  } from '../../employee'
 })
 export class LoginComponent implements OnInit {
 
-  error: string
+  // error: string
+  successMSG: boolean = false
+  error: string = ''
 
-  constructor( private employeesService: EmployeesService ) { }
+  constructor( 
+    private employeesService: EmployeesService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { 
+    console.log('Authentication - login loaded')
+  }
 
   ngOnInit(): void {
   }
 
   loginFormValue(value: any) {
-    console.log(value)
+    // console.log(value)
     return this.employeesService
       .loginEmployees(value)
-      .subscribe(
-        value => console.log('login success'),
-        error => this.error = error
-      );
+      // .subscribe(
+      //   successMSG => {this.successMSG = true, this.error = ''},
+      //   error => this.error = error
+      // )
+      .subscribe({
+        next: () => {
+            this.successMSG = true, 
+            this.error = '',
+            this.router.navigate(['../'], 
+            { relativeTo: this.route });
+        },
+        error: error => {
+          this.error = error
+        }
+      });
   }
 
 }

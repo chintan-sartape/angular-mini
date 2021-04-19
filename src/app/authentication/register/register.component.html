@@ -1,4 +1,6 @@
-<h1>Registration</h1>
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+    <h1>{{title}}</h1>
 
 {{registerForm.form.valid}}
 <div class="form-container">
@@ -7,7 +9,7 @@
     <div class="form-group">
         <input name="name" type="text" placeholder="Enter name" required
             #name="ngModel" 
-            [(ngModel)]="registerForm.name" 
+            [(ngModel)]="registerForm.name"
             [class.is-invalid]="name.invalid && name.touched"
             class="form-control" >
         <small class="text-danger" [class.d-none]="name.valid || name.untouched">name is required</small>
@@ -22,7 +24,7 @@
     </div>
     <div class="form-group">
         <input name="position" type="text" placeholder="Enter position" required
-            #position="ngModel" 
+            #position="ngModel"
             [(ngModel)]="registerForm.position" 
             [class.is-invalid]="position.invalid && position.touched"
             class="form-control" >
@@ -59,4 +61,6 @@
     </div>
 </form>
 
+</div>
+</div>
 </div>

@@ -1,1 +1,28 @@
-<p>employee-profile works!</p>
+<div class="container">
+    <button class="btn btn-primary mb-4 mt-4" routerLink="/employees">Back</button>
+    <div class="form-group">
+        <label for="name">Name: </label>
+        {{name}} 
+    </div>
+    <div class="form-group">
+        <label for="name">Email: </label>
+        {{email}} 
+    </div>
+    <div class="form-group">
+        <label for="name">Age: </label>
+        {{age}} 
+    </div>
+    <div class="form-group">
+        <label for="name">Position: </label>
+        {{position}} 
+    </div>
+    <div class="form-group">
+        <label for="name">Salary: </label>
+        {{salary}} 
+    </div>
+    <div class="form-group">
+        <label for="name">Password: </label>
+        {{password}} 
+    </div>
+    <button class="btn btn-primary" routerLink="/employees/{{_id}}/edit">Edit</button>
+</div>

@@ -1,4 +1,24 @@
+<div class="container">
+
+  <div class="col-md-6 offset-md-3">
+
+  <h1>Login</h1>
 {{loginForm.form.valid}}
+
+<div *ngIf="successMSG" class="alert alert-primary alert-dismissible fade show" role="alert">
+  <strong>Login Success!</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<!-- {{error}} -->
+<div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>{{error}}</strong>.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <form #loginForm="ngForm" (ngSubmit)="loginFormValue(loginForm.value)" class="form-signin">
 
   <span id="reauth-email" class="reauth-email"></span>
@@ -28,3 +48,6 @@
   </div>
 
 </form>
+</div>
+
+</div>

@@ -1,5 +1,5 @@
-<app-register></app-register>
-
+<div class="container">
+<h1>Employees</h1>
 <table class="table table-striped table-bordered mb-0 listViewTable">
     <thead>
         <th>id</th>
@@ -9,6 +9,7 @@
         <th>age</th>
         <th>salary</th>
         <th>position</th>
+        <th>Action</th>
     </thead>
     <tbody>
         <ng-container *ngFor="let employee of employees">
@@ -20,8 +21,14 @@
                 <td class="listViewRow">{{ employee.age }}</td>
                 <td class="listViewRow">{{ employee.salary }}</td>
                 <td class="listViewRow">{{ employee.position }}</td>
+                <td class="listViewRow">
+                    <button class="btn ml-2 btn-success" routerLink="/employees/{{employee._id}}">View</button>
+                    <button class="btn ml-2 btn-primary" routerLink="/employees/{{employee._id}}/edit">Edit</button>
+                    <button class="btn ml-2 btn-danger">Delete</button>
+                </td>
             </tr>
         </ng-container>
     </tbody>
 </table>
+</div>
 <!-- <app-login></app-login> -->
