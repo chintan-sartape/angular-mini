@@ -22,9 +22,9 @@
                 <td class="listViewRow">{{ employee.salary }}</td>
                 <td class="listViewRow">{{ employee.position }}</td>
                 <td class="listViewRow">
-                    <button class="btn ml-2 btn-success" routerLink="/employees/{{employee._id}}">View</button>
-                    <button class="btn ml-2 btn-primary" routerLink="/employees/{{employee._id}}/edit">Edit</button>
-                    <button class="btn ml-2 btn-danger">Delete</button>
+                    <button class="btn ml-2 btn-success" (click)="viewEmployee(employee)">View</button>
+                    <button class="btn ml-2 btn-primary" (click)="editEmployee(employee)">Edit</button>
+                    <button class="btn ml-2 btn-danger" (click)="deleteEmployee(employee)">Delete</button>
                 </td>
             </tr>
         </ng-container>

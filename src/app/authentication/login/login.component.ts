@@ -10,7 +10,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  // error: string
   successMSG: boolean = false
   error: string = ''
 
@@ -33,17 +32,33 @@ export class LoginComponent implements OnInit {
       //   successMSG => {this.successMSG = true, this.error = ''},
       //   error => this.error = error
       // )
-      .subscribe({
-        next: () => {
-            this.successMSG = true, 
-            this.error = '',
-            this.router.navigate(['../'], 
-            { relativeTo: this.route });
+      // .subscribe({
+      //   next: (result: any) => {
+      //     console.log('result'),
+      //     console.log(result.token),
+      //     this.successMSG = true, 
+      //     this.error = '',
+      //     this.router.navigate(['/'], 
+      //     { relativeTo: this.route });
+      //   },
+      //   error: error => {
+      //     this.error = error
+      //   }
+      // });
+      .subscribe(
+        (result: any) => {                // result
+          // console.log(result.token),
+          localStorage.setItem('token', result.token);
+          this.successMSG = true, 
+          this.error = '',
+          this.router.navigate(['/'],
+          { relativeTo: this.route });
         },
-        error: error => {
+        (error) => {                      // error
           this.error = error
-        }
-      });
+        },
+        () => console.log('completed')    // complete
+      );
   }
 
 }
